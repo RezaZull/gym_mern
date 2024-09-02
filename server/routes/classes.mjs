@@ -11,23 +11,16 @@ import {
 const router = express.Router()
 let col = db.collection('class')
 
-const validator = [
-    body('*.name', 'name is required').notEmpty(),
-    body('*.desc', 'desc is required').notEmpty(),
-    body('*.price', 'price is required').notEmpty(),
-    body('*.exercise', 'exercise is required').notEmpty(),
-]
-
 router.get("/", async (req, res) => {
-    let data = await col.find().toArray()
+    const query = req.body || {}
+    let data = await col.find(query).toArray()
     res.status(200).send({
         message: "success read data",
         data: data
     })
 })
 router.get("/:id", async (req, res) => {
-    const getId = req.params.id
-    if (getId.length != 24) {
+    if (!ObjectId.isValid(req.params.id)) {
         return res.status(401).json({
             message: "wrong id"
         })
@@ -48,17 +41,19 @@ router.get("/:id", async (req, res) => {
     }
 })
 
+const validator = [
+    body('*.name', 'name is required').notEmpty(),
+    body('*.desc', 'desc is required').notEmpty(),
+    body('*.price', 'price is required').notEmpty(),
+    body('*.exercise', 'exercise is required').notEmpty(),
+]
 router.post('/', validator, async (req, res) => {
-    const mode = req.query.mode
     const validatorErr = validationResult(req)
     if (validatorErr.isEmpty()) {
-        if (mode == "bulk") {
-            await col.insertMany(req.body)
-        } else {
-            await col.insertOne(req.body)
-        }
+        const result = await col.insertMany(req.body)
         res.status(200).send({
-            message: "success insert data"
+            message: "success insert data",
+            data: result
         })
     } else {
         res.status(400).send({
