@@ -49,7 +49,8 @@ router.delete('/:id', async (req, res) => {
     const query = {
         _id: new ObjectId(getid)
     }
-    let result = col.deleteOne(query)
+    let result = await col.deleteOne(query)
+    console.log(result)
     res.status(200).json({
         message: "data removed"
     })

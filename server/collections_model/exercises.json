@@ -1,0 +1,17 @@
+{
+    "_id":"",
+    "name":"",
+    "description":"",
+    "advantages":"",
+    "procedures":[
+        {
+            "name":"",
+            "steps":"",
+            "type":"warm-up, cool-down, exercise",
+            "images":[],
+            "vidios":"www.youtube",
+            "reps":"",
+            "sets":""
+        }
+    ]
+}

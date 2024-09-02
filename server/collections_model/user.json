@@ -1,0 +1,33 @@
+{
+    "_id":"",
+    "username":"",
+    "email":"",
+    "password":"",
+    "role":"user,manager,admin,coaches,superadmin",
+    "user_detail":{
+        "name":"",
+        "address":"",
+        "phone":"",
+        "profile_pictures":""
+    },
+    "schedule":[
+        {
+            "date":"",
+            "excercise":""
+        },
+        {
+            "date":"",
+            "excercise":""
+        }
+    ],
+    "class":[
+        {
+            "class_id":"",
+            "end_classDate":""
+        },
+        {
+            "class_id":"",
+            "end_classDate":""
+        }
+    ]
+}

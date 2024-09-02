@@ -1,0 +1,12 @@
+{
+    "_id":"",
+    "address":"",
+    "status":"",
+    "opening_time":"",
+    "closing_time":"",
+    "visitor_count":"",
+    "images":[],
+    "manager":"",
+    "coaches":[],
+    "class":[]
+}

@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv"
 import landingPage from "./routes/landingPage.mjs"
 import gymClass from "./routes/gymClass.mjs"
+import classes from "./routes/classes.mjs"
 
 
 dotenv.config()
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
 
 app.use("/landingpage", landingPage)
 app.use("/gymclass", gymClass)
+app.use("/classes", classes)
 
 app.listen(PORT, () => {
     console.log(`Server listening to port ${PORT}`)
