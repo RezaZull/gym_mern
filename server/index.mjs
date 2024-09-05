@@ -5,6 +5,7 @@ import landingPage from "./routes/landingPage.mjs"
 import gymClass from "./routes/gymClass.mjs"
 import classes from "./routes/classes.mjs"
 import branch from "./routes/branch.mjs"
+import exercises from "./routes/exercises.mjs"
 
 
 dotenv.config()
@@ -24,6 +25,7 @@ app.use("/landingpage", landingPage)
 app.use("/gymclass", gymClass)
 app.use("/classes", classes)
 app.use("/branch", branch)
+app.use("/exercises", exercises)
 
 app.listen(PORT, () => {
     console.log(`Server listening to port ${PORT}`)
